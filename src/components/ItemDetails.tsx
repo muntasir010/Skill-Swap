@@ -9,13 +9,13 @@ export const ItemDetails = () => {
   if (isLoading) return <p className="text-center">Loading details...</p>;
 
   return (
-    <div className="max-w-4xl mx-auto py-20 px-4">
+    <div className="max-w-4xl mx-auto my-10 py-20 px-4 md:px-8 border-2 border-gray-200 shadow-xl rounded-3xl bg-white">
         <div className="mb-6">
           <Link to={"/"} className="text-indigo-600 text-xl hover:text-indigo-800 font-medium">
             &larr; Back
           </Link>
         </div>
-      <img src={item?.image} className="w-full h-96 object-cover rounded-3xl mb-8" alt="" />
+      <img src={item?.image} className="w-full mx-auto h-96 object-cover rounded-3xl mb-8" alt="" />
       <h1 className="text-4xl font-bold mb-4">{item?.title}</h1>
       <div className="flex justify-between gap-4 mb-6">
         <span className="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-bold">

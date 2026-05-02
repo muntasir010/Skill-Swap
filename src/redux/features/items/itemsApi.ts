@@ -2,16 +2,19 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const itemsApi = createApi({
   reducerPath: "itemsApi",
-  baseQuery: fetchBaseQuery({
-    baseUrl: import.meta.env.VITE_API_URL,
-    prepareHeaders: (headers) => {
-      const token = localStorage.getItem("token");
-      if (token) {
-        headers.set("authorization", `${token}`);
-      }
-      return headers;
-    },
-  }),
+  baseQuery: fetchBaseQuery({ 
+  baseUrl: "http://localhost:3000/api/v1",
+  prepareHeaders: (headers) => {
+    const token = localStorage.getItem("token"); 
+    if (token) {
+      headers.set("authorization", token);
+    }
+    return headers;
+  },
+  fetchFn: (input, init) => {
+    return fetch(input, { ...init, credentials: "include" });
+  },
+}),
   tagTypes: ["Items"],
   endpoints: (builder) => ({
     getAllItems: builder.query({
@@ -28,7 +31,19 @@ export const itemsApi = createApi({
         method: "GET",
       }),
     }),
+    createItem: builder.mutation({
+      query: (newItem) => ({
+        url: "/item/create-item",
+        method: "POST",
+        body: newItem,
+      }),
+      invalidatesTags: ["Items"],
+    }),
   }),
 });
 
-export const { useGetAllItemsQuery, useGetSingleItemQuery } = itemsApi;
+export const {
+  useGetAllItemsQuery,
+  useGetSingleItemQuery,
+  useCreateItemMutation,
+} = itemsApi;

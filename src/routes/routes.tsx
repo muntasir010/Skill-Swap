@@ -4,6 +4,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Home from "../pages/Home";
 import { ItemDetails } from "../components/ItemDetails";
+import AddItem from "../pages/AddITem";
 
 export const router = createBrowserRouter([
   {
@@ -25,7 +26,12 @@ export const router = createBrowserRouter([
       {
         path: "/item/:id",
         element: <ItemDetails />,
-      }
+      },
+      {
+        path: "/add-item",
+        element: <AddItem/>
+      },
+
     ],
   },
 ]);
