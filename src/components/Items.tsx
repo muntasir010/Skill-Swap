@@ -4,6 +4,7 @@ import { Search, ArrowRight, Loader2, Tag, FilterX } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { UserAvatar } from "./UserAvatar";
 import { useGetAllItemsQuery } from "../redux/features/items/itemsApi";
+import { Link } from "react-router-dom";
 
 const ItemsPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -123,11 +124,13 @@ const ItemsPage = () => {
                     <p className="text-gray-500 text-sm leading-relaxed mb-8 line-clamp-2">
                       {item.shortDescription || item.description}
                     </p>
-
-                    <button className="w-full py-4 bg-gray-900 text-white font-bold rounded-2xl group-hover:bg-indigo-600 transition-all flex items-center justify-center gap-3 shadow-lg shadow-gray-200 group-hover:shadow-indigo-200">
+                    <Link
+                      to={`/item/${item._id}`}
+                      className="w-full py-4 bg-gray-900 text-white font-bold rounded-2xl hover:bg-indigo-600 transition-all flex items-center justify-center gap-3"
+                    >
                       View Details
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                      <ArrowRight className="w-5 h-5" />
+                    </Link>
                   </div>
                 </motion.div>
               ))}

@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const itemsApi = createApi({
   reducerPath: "itemsApi",
-  baseQuery: fetchBaseQuery({ 
+  baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_API_URL,
     prepareHeaders: (headers) => {
       const token = localStorage.getItem("token");
@@ -16,13 +16,19 @@ export const itemsApi = createApi({
   endpoints: (builder) => ({
     getAllItems: builder.query({
       query: (params) => ({
-        url: "/item", 
+        url: "/item",
         method: "GET",
         params: params,
       }),
       providesTags: ["Items"],
     }),
+    getSingleItem: builder.query({
+      query: (id) => ({
+        url: `/item/${id}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useGetAllItemsQuery } = itemsApi;
+export const { useGetAllItemsQuery, useGetSingleItemQuery } = itemsApi;
