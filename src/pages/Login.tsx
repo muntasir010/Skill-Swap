@@ -94,7 +94,7 @@ const Login = () => {
         </form>
 
         {/* Footer */}
-        <p className="text-center text-gray-600 mt-8 text-sm">
+        <p className="text-center text-gray-600 mt-6 text-sm">
           Don't have an account?{' '}
           <Link to="/register" className="text-primary font-bold hover:underline">
             Create an Account
