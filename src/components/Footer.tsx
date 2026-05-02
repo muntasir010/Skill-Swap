@@ -17,20 +17,6 @@ const Footer = () => {
             <p className="text-gray-500 text-sm leading-relaxed">
               The ultimate platform to exchange skills, grow your portfolio, and connect with experts worldwide. Start your journey today!
             </p>
-            {/* <div className="flex items-center gap-4 pt-2">
-              <a href="#" className="p-2 bg-gray-50 rounded-full text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="p-2 bg-gray-50 rounded-full text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="p-2 bg-gray-50 rounded-full text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="p-2 bg-gray-50 rounded-full text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all">
-                <Github className="w-5 h-5" />
-              </a>
-            </div> */}
           </div>
 
           {/* Quick Navigation */}

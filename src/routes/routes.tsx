@@ -5,6 +5,8 @@ import Register from "../pages/Register";
 import Home from "../pages/Home";
 import { ItemDetails } from "../components/ItemDetails";
 import AddItem from "../pages/AddITem";
+import About from "../pages/About";
+import ItemsPage from "../components/Items";
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +33,14 @@ export const router = createBrowserRouter([
         path: "/add-item",
         element: <AddItem/>
       },
+      {
+        path: "/about",
+        element: <About/>
+      },
+      {
+        path: "/skills",
+        element: <ItemsPage/>
+      }
 
     ],
   },
