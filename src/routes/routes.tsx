@@ -7,6 +7,7 @@ import { ItemDetails } from "../components/ItemDetails";
 import AddItem from "../pages/AddITem";
 import About from "../pages/About";
 import ItemsPage from "../components/Items";
+import ProtectedRoute from "./ProtectedRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -27,11 +28,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/item/:id",
-        element: <ItemDetails />,
+        element: <ProtectedRoute><ItemDetails /></ProtectedRoute>,
       },
       {
         path: "/add-item",
-        element: <AddItem/>
+        element: <ProtectedRoute><AddItem /></ProtectedRoute>
       },
       {
         path: "/about",
