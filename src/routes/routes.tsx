@@ -8,6 +8,7 @@ import AddItem from "../pages/AddITem";
 import About from "../pages/About";
 import ItemsPage from "../components/Items";
 import ProtectedRoute from "./ProtectedRoutes";
+import Features from "../components/Features";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
       {
         path: "/skills",
         element: <ItemsPage/>
+      },
+      {
+        path: "/features",
+        element: <Features/>
       }
 
     ],
