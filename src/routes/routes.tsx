@@ -9,6 +9,7 @@ import About from "../pages/About";
 import ItemsPage from "../components/Items";
 import ProtectedRoute from "./ProtectedRoutes";
 import Features from "../components/Features";
+import ManageItems from "../pages/ManageItem";
 
 export const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
       {
         path: "/features",
         element: <Features/>
+      },
+      {
+        path: "/manage-items",
+        element: <ProtectedRoute><ManageItems/></ProtectedRoute>
       }
 
     ],

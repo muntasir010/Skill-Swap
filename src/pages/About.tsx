@@ -4,7 +4,7 @@ import { Code2, Users, Sparkles } from "lucide-react";
 const About = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-16 px-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
