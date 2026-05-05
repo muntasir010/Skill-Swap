@@ -36,7 +36,7 @@ const AddItem = () => {
 
     if (res.success) {
       alert("Item added successfully!");
-      navigate("/items");
+      navigate("/skills");
     }
   } catch (err) {
     console.error("Failed to add item:", err);
