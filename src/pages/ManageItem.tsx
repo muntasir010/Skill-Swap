@@ -37,7 +37,7 @@ const ManageItems = () => {
         </Link>
       </div>
 
-      <div className="bg-white border border-gray-100 rounded-[2rem] overflow-hidden">
+      <div className="bg-white border border-gray-100 rounded-4xl overflow-hidden">
         <table className="w-full text-left">
           <thead className="bg-gray-50 border-b border-gray-100">
             <tr>

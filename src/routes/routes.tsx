@@ -10,6 +10,7 @@ import ItemsPage from "../components/Items";
 import ProtectedRoute from "./ProtectedRoutes";
 import Features from "../components/Features";
 import ManageItems from "../pages/ManageItem";
+import UpdateItem from "../components/Update";
 
 export const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
       {
         path: "/manage-items",
         element: <ProtectedRoute><ManageItems/></ProtectedRoute>
+      },
+      {
+        path: "/edit-item/:id",
+        element: <ProtectedRoute><UpdateItem/></ProtectedRoute>
       }
 
     ],
