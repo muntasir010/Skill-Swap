@@ -30,7 +30,7 @@ export const itemsApi = createApi({
         url: `/item/${id}`,
         method: "GET",
       }),
-      providesTags: (result, error, id) => [{ type: "Items", id }],
+      providesTags: (_, __, id) => [{ type: 'Items', id }],
     }),
 
     createItem: builder.mutation({
