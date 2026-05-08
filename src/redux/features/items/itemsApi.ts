@@ -30,7 +30,7 @@ export const itemsApi = createApi({
         url: `/item/${id}`,
         method: "GET",
       }),
-      providesTags: (_, __, id) => [{ type: 'Items', id }],
+      providesTags: (_, __, id) => [{ type: "Items", id }],
     }),
 
     createItem: builder.mutation({
@@ -56,7 +56,7 @@ export const itemsApi = createApi({
         url: `/item/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["Items"],
+      invalidatesTags: ["Items"], // ডিলিট হওয়ার পর লিস্ট অটো-রিফ্রেশ হবে
     }),
   }),
 });

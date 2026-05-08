@@ -1,12 +1,34 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Edit, Loader2, Plus, AlertCircle } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useGetMyItemsQuery } from "../redux/features/items/itemsApi";
+import { useDeleteItemMutation, useGetMyItemsQuery } from "../redux/features/items/itemsApi";
+import Swal from "sweetalert2";
 
 const ManageItems = () => {
   const { data, isLoading, isError } = useGetMyItemsQuery(undefined);
-
+  const [deleteItem] = useDeleteItemMutation();
   const items = data?.data || [];
+
+  const handleDelete = (id: string) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await deleteItem(id).unwrap();
+          Swal.fire("Deleted!", "Your item has been deleted.", "success");
+        } catch (err: any) {
+          Swal.fire("Error!", err?.data?.message || "Failed to delete", "error");
+        }
+      }
+    });
+  };
 
   if (isLoading) {
     return (
@@ -58,6 +80,12 @@ const ManageItems = () => {
                   >
                     <Edit className="w-5 h-5" />
                   </Link>
+                  <button
+                    onClick={() => handleDelete(item._id)}
+                    className="inline-flex p-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-600 hover:text-white transition-all"
+                  >
+                    <Edit className="w-5 h-5" />
+                  </button>
                 </td>
               </tr>
             ))}
